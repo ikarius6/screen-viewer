@@ -1,6 +1,8 @@
 # Screen-Viewer 1.0 - By Mr.Jack
 An experiment with PHP and socketio to share your screen in a pretty low rate (because PHP)
 
+![Demo](https://raw.githubusercontent.com/ikarius6/screen-viewer/master/demo.gif)
+
 ## Requeriments
 NodeJS
 PHP running
