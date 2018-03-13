@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>Screen Viewer V1.0 - By Mr.Jack - 12/03/18</title>
+		<script src="http://127.0.0.1:9875/socket.io/socket.io.js"></script>
+		<style>
+			
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Screen Viewer V1.0 - By Mr.Jack</h1>
+			<canvas id="c" width="1024" height="576" style="background:black"></canvas>
+	</body>
+	<script type="text/javascript">
+		var websocket = io.connect("http://localhost:9875");
+		websocket.on("guardar_buffer", function(data){
+			console.log("guardar_buffer");
+            buffer += data;
+		});
+        
+        websocket.on("pintar_imagen", function(){
+            console.log("pintar_imagen");
+            if(buffer != ""){
+                image.src = "data:image/png;base64,"+buffer;
+                buffer = "";
+            }
+        });    
+	</script>
+	<script>
+    var canvas;
+    var ctx;
+    var image;
+    var buffer = "";
+
+    canvas = document.getElementById("c");
+    ctx = canvas.getContext("2d");
+
+    image = new Image();
+    image.onload = function() {
+        ctx.drawImage(image, 0, 0);
+    };
+	</script>
+</html>
