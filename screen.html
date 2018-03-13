@@ -14,7 +14,7 @@
 			<canvas id="c" width="1024" height="576" style="background:black"></canvas>
 	</body>
 	<script type="text/javascript">
-		var websocket = io.connect("http://localhost:9875");
+		var websocket = io.connect("http://127.0.0.1:9875");
 		websocket.on("guardar_buffer", function(data){
 			console.log("guardar_buffer");
             buffer += data;
